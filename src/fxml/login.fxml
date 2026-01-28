@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="LoginController">
+
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu text="File" />
+                <Menu text="Edit" />
+                <Menu text="Help" />
+            </menus>
+        </MenuBar>
+
+        <AnchorPane VBox.vgrow="ALWAYS">
+            <children>
+                <TextField fx:id="txtUsuario" layoutX="230.0" layoutY="107.0" />
+                <PasswordField fx:id="txtSenha" layoutX="230.0" layoutY="152.0" />
+                <Button fx:id="btnEntrar"
+                        layoutX="278.0"
+                        layoutY="192.0"
+                        text="Entrar"
+                        onAction="#entrar" />
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>
