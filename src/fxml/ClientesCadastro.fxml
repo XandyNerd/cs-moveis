@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="ClientesController"
+   stylesheets="@../styles/main.css"
+   spacing="20"
+   prefWidth="800"
+   style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 30px;">
+
+   <children>
+      <!-- Modal Header -->
+      <HBox alignment="CENTER_LEFT" spacing="10">
+         <children>
+            <Text text="👥" style="-fx-font-size: 24px;" />
+            <Text text="Novo Cliente" styleClass="page-title" />
+         </children>
+      </HBox>
+
+      <!-- Seção 1: Dados Pessoais -->
+      <VBox spacing="15">
+         <children>
+            <Text text="📋 Dados Pessoais"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #2c3e50;" />
+            <Separator />
+
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="150" prefWidth="250" />
+               </columnConstraints>
+
+               <rowConstraints>
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+               </rowConstraints>
+
+               <children>
+                  <!-- Nome Completo (full width) -->
+                  <Label text="Nome Completo *" GridPane.rowIndex="0" />
+                  <TextField fx:id="txtNome"
+                     promptText="Digite o nome do cliente"
+                     GridPane.columnIndex="1"
+                     GridPane.columnSpan="3"
+                     GridPane.rowIndex="0" />
+
+                  <!-- CPF | RG -->
+                  <Label text="CPF *" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtCpf"
+                     promptText="000.000.000-00"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="1" />
+
+                  <Label text="RG" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtRg"
+                     promptText="00.000.000-0 (opcional)"
+                     GridPane.columnIndex="3"
+                     GridPane.rowIndex="1" />
+
+                  <!-- Data de Nascimento -->
+                  <Label text="Data Nascimento" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtDataNascimento"
+                     promptText="DD/MM/AAAA (opcional)"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+
+      <!-- Seção 2: Contato -->
+      <VBox spacing="15">
+         <children>
+            <Text text="📞 Contato"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #2c3e50;" />
+            <Separator />
+
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="150" prefWidth="250" />
+               </columnConstraints>
+
+               <rowConstraints>
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+               </rowConstraints>
+
+               <children>
+                  <!-- Email (full width) -->
+                  <Label text="Email *" GridPane.rowIndex="0" />
+                  <TextField fx:id="txtEmail"
+                     promptText="exemplo@email.com"
+                     GridPane.columnIndex="1"
+                     GridPane.columnSpan="3"
+                     GridPane.rowIndex="0" />
+
+                  <!-- Telefone | Telefone Secundário -->
+                  <Label text="Telefone *" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtTelefone"
+                     promptText="(00) 00000-0000"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="1" />
+
+                  <Label text="Tel. Secundário" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtTelefoneSecundario"
+                     promptText="(00) 00000-0000 (opcional)"
+                     GridPane.columnIndex="3"
+                     GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+
+      <!-- Seção 3: Endereço -->
+      <VBox spacing="15">
+         <children>
+            <Text text="🏠 Endereço"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #2c3e50;" />
+            <Separator />
+
+            <GridPane hgap="15.0" vgap="15.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="200" prefWidth="250" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="100" prefWidth="120" />
+                  <ColumnConstraints hgrow="ALWAYS" minWidth="150" prefWidth="250" />
+               </columnConstraints>
+
+               <rowConstraints>
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="30" prefHeight="35" vgrow="SOMETIMES" />
+               </rowConstraints>
+
+               <children>
+                  <!-- CEP -->
+                  <Label text="CEP *" GridPane.rowIndex="0" />
+                  <TextField fx:id="txtCep"
+                     promptText="00000-000"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="0" />
+
+                  <!-- Endereço (full width right side) -->
+                  <Label text="Endereço *" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                  <TextField fx:id="txtEndereco"
+                     promptText="Rua, Avenida, etc"
+                     GridPane.columnIndex="3"
+                     GridPane.rowIndex="0" />
+
+                  <!-- Número | Complemento -->
+                  <Label text="Número *" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtNumero"
+                     promptText="Nº"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="1" />
+
+                  <Label text="Complemento" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtComplemento"
+                     promptText="Apto, bloco (opcional)"
+                     GridPane.columnIndex="3"
+                     GridPane.rowIndex="1" />
+
+                  <!-- Bairro -->
+                  <Label text="Bairro" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtBairro"
+                     promptText="Bairro (opcional)"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="2" />
+
+                  <!-- Cidade | Estado -->
+                  <Label text="Cidade" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtCidade"
+                     promptText="Cidade (opcional)"
+                     GridPane.columnIndex="3"
+                     GridPane.rowIndex="2" />
+
+                  <Label text="Estado" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="cmbEstado"
+                     promptText="UF (opcional)"
+                     GridPane.columnIndex="1"
+                     GridPane.rowIndex="3"
+                     prefWidth="250" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+
+      <!-- Seção 4: Observações -->
+      <VBox spacing="15">
+         <children>
+            <Text text="📝 Observações"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-fill: #2c3e50;" />
+            <Separator />
+
+            <TextArea fx:id="txtObservacoes"
+               promptText="Informações adicionais sobre o cliente (opcional)"
+               prefRowCount="4"
+               wrapText="true" />
+         </children>
+      </VBox>
+
+      <!-- Action Buttons -->
+      <HBox spacing="15" alignment="CENTER_RIGHT">
+         <children>
+            <Button text="✖ Cancelar"
+               styleClass="secondary"
+               prefWidth="120"
+               prefHeight="40"
+               onAction="#fecharModal" />
+
+            <Button text="💾 Salvar"
+               styleClass="gold-button"
+               prefWidth="120"
+               prefHeight="40"
+               onAction="#salvarCliente" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

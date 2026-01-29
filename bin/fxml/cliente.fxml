@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0"
+    xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1"
+    fx:controller="ClienteController"
+    stylesheets="@../styles/main.css">
+
+    <children>
+        <!-- Header Section -->
+        <VBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <children>
+                        <VBox>
+                            <children>
+                                <Text text="Gestão de Clientes" styleClass="page-title" />
+                                <Text text="Cadastre e gerencie seus clientes"
+                                    styleClass="gold-label" />
+                            </children>
+                        </VBox>
+
+                        <!-- Spacer -->
+                        <Region HBox.hgrow="ALWAYS" />
+
+                        <!-- Dark Mode Toggle (placeholder) -->
+                        <Button text="🌙" styleClass="secondary" prefWidth="40" prefHeight="40" />
+
+                        <!-- Notifications (placeholder) -->
+                        <Button text="🔔" styleClass="secondary" prefWidth="40" prefHeight="40" />
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets top="20" right="25" bottom="15" left="25" />
+            </padding>
+        </VBox>
+
+        <!-- Search and Actions Bar -->
+        <HBox spacing="15" alignment="CENTER_LEFT"
+            AnchorPane.leftAnchor="25.0"
+            AnchorPane.rightAnchor="25.0"
+            AnchorPane.topAnchor="100.0">
+
+            <children>
+                <!-- Search Field -->
+                <TextField fx:id="txtBusca"
+                    promptText="🔍 Buscar por Nome, CPF ou Email..."
+                    prefWidth="400"
+                    prefHeight="40"
+                    onKeyReleased="#buscarClientes" />
+
+                <!-- Spacer -->
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Action Buttons -->
+                <Button text="+ Novo Cliente"
+                    styleClass="gold-button"
+                    prefHeight="40"
+                    onAction="#novoCliente" />
+
+                <Button text="✏️ Editar"
+                    styleClass="secondary"
+                    prefHeight="40"
+                    onAction="#editarCliente" />
+
+                <Button text="🗑️ Excluir"
+                    style="-fx-background-color: #c94c4c; -fx-text-fill: white;"
+                    prefHeight="40"
+                    onAction="#excluirCliente" />
+            </children>
+        </HBox>
+
+        <!-- Table Section -->
+        <TableView fx:id="tableClientes"
+            AnchorPane.leftAnchor="25.0"
+            AnchorPane.rightAnchor="25.0"
+            AnchorPane.topAnchor="165.0"
+            AnchorPane.bottomAnchor="80.0">
+
+            <columns>
+                <!-- Checkbox Column -->
+                <TableColumn prefWidth="50" text="" />
+
+                <!-- Nome Column -->
+                <TableColumn prefWidth="220" text="NOME"
+                    fx:id="colNome" />
+
+                <!-- CPF/CNPJ Column -->
+                <TableColumn prefWidth="150" text="CPF/CNPJ"
+                    fx:id="colCpf" />
+
+                <!-- Telefone Column -->
+                <TableColumn prefWidth="150" text="TELEFONE"
+                    fx:id="colTelefone" />
+
+                <!-- Email Column -->
+                <TableColumn prefWidth="200" text="EMAIL"
+                    fx:id="colEmail" />
+
+                <!-- Status Column -->
+                <TableColumn prefWidth="100" text="STATUS"
+                    fx:id="colStatus" />
+            </columns>
+        </TableView>
+
+        <!-- Pagination Footer -->
+        <HBox spacing="10" alignment="CENTER_LEFT"
+            AnchorPane.leftAnchor="25.0"
+            AnchorPane.rightAnchor="25.0"
+            AnchorPane.bottomAnchor="20.0">
+
+            <children>
+                <Label fx:id="lblResultados"
+                    text="Mostrando 1 a 5 de 42 resultados" />
+
+                <!-- Spacer -->
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Pagination Controls -->
+                <Button text="❮" styleClass="secondary" prefWidth="40" prefHeight="35"
+                    onAction="#paginaAnterior" />
+
+                <Button text="1" styleClass="gold-button" prefWidth="40" prefHeight="35" />
+                <Button text="2" styleClass="secondary" prefWidth="40" prefHeight="35" />
+                <Button text="3" styleClass="secondary" prefWidth="40" prefHeight="35" />
+                <Label text="..." />
+                <Button text="8" styleClass="secondary" prefWidth="40" prefHeight="35" />
+
+                <Button text="❯" styleClass="secondary" prefWidth="40" prefHeight="35"
+                    onAction="#proximaPagina" />
+            </children>
+        </HBox>
+
+    </children>
+</AnchorPane>

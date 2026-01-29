@@ -9,8 +9,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(
-            getClass().getResource("/fxml/login.fxml")
-        );
+                getClass().getResource("/fxml/login.fxml"));
 
         Scene scene = new Scene(loader.load());
         stage.setTitle("CS Móveis - Login");

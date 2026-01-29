@@ -6,7 +6,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 
-
 public class LoginController {
     @FXML
     private TextField txtUsuario;
@@ -18,26 +17,32 @@ public class LoginController {
     private Label lblErro;
 
     @FXML
- public void entrar() {
+    public void entrar() {
         try {
-            // carregar tela principal
+            // Carrega a tela principal
             FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/fxml/Principal.fxml")
-            );
+                    getClass().getResource("/fxml/Principal.fxml"));
 
             Scene scene = new Scene(loader.load());
 
-            Stage stage = new Stage();
+            // Reutiliza o Stage atual (janela de login)
+            Stage stage = (Stage) txtUsuario.getScene().getWindow();
             stage.setTitle("CS Móveis - Sistema");
             stage.setScene(scene);
-            stage.show();
 
-            // fechar tela de login
-            Stage loginStage = (Stage) txtUsuario.getScene().getWindow();
-            loginStage.close();
+            // Define tamanho mínimo
+            stage.setMinWidth(1024);
+            stage.setMinHeight(768);
+
+            // Maximiza a janela
+            stage.setMaximized(true);
+
+            // Mantém a janela visível (já está aberta)
+            // stage.show(); // Não precisa, já está visível
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Erro ao abrir tela principal: " + e.getMessage());
         }
     }
 }
